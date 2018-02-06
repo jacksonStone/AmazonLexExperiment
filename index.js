@@ -6,7 +6,7 @@ const awsAccessKeyId = credentials.amazon.AWSAccessKeyId;
 const awsCreds = new AWS.Credentials(awsAccessKeyId, awsSecretKey);
 const REGION = 'us-east-1';
 const LATEST = '$LATEST';
-const newBot = require('./example_bot');
+const newBot = require('./dynamics_example_bot');
 
 var buildingService = new AWS.LexModelBuildingService({
 	apiVersion: '2017-04-19',
@@ -113,6 +113,22 @@ var createBot = async function(botMetadata){
   			intentVersion:LATEST
   		}
   	}),
+  	clarificationPrompt: {
+  		maxAttempts:3,
+  		messages:[
+  			{content:'I did not understand the sounds coming out of your face hole',
+  			contentType:'PlainText'},
+  			{content:'Sorry, what?', contentType:'PlainText'}
+  		]
+  	},
+  	 "abortStatement": { 
+      "messages": [ 
+         { 
+            "content": "ABORTING",
+            "contentType": "PlainText"
+         }
+      ],
+    },
   	processBehavior:'SAVE',
   	voiceId:'Joanna'
 	};
