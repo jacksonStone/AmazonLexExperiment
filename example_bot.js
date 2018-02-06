@@ -24,19 +24,19 @@ var newBot = {
 	],
 	intents: [
 		{
-			name:'intent_1',
+			name:'intent_one',
 			slots:[
 				{
 					name:'slotTwo',
 					required:true,//slotConstraint:'Required'
 					slotType:'slotTypeTwo',
-					valueElicitationPrompt:"What fruit would you like?"
+					question:"What fruit would you like?"
 				},
 				{
 					name:'slotOne',
 					required:true,//slotConstraint:'Required'
 					slotType:'slotTypeOne',
-					valueElicitationPrompt:"How many would you like?"
+					question:"How many would you like?"
 				},
 			],
 			sampleUtterances: [
